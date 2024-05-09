@@ -17,7 +17,7 @@ public class Movement : MonoBehaviour
     void Update()
     {
         if (Input.GetButtonDown("jump"))
-          
+
         {
             rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
 
