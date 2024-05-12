@@ -1,28 +1,39 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
-public class Movement : MonoBehaviour
+public class CharacterController : MonoBehaviour
 {
-    public Rigidbody rigidbody;
-    public float jumpForce = 10f;
-    public AudioManger audioManger;
-    // Start is called before the first frame update
+    private Rigidbody rg;
+    public float speed = 10.0F;
+    public float jumpspeed = 10.0F;
+
+
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        Cursor.lockState = CursorLockMode.Locked;
+        rg = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        if (Input.GetButtonDown("jump"))
+        float translation = Input.GetAxis("Vertical") * speed;
+        float straffe = Input.GetAxis("Horizontal") * speed;
+        translation *= Time.deltaTime;
+        straffe *= Time.deltaTime;
 
+        transform.Translate(straffe, 0, translation);
+
+        if (Input.GetKey(KeyCode.Space))
         {
-            rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-
-            audioManger.PlayPlayerjump();
+            Vector3 atas = new Vector3(0, 100, 0);
+            rg.AddForce(atas * speed);
         }
 
+        if (Input.GetKeyDown("escape"))
+            Cursor.lockState = CursorLockMode.None;
+
+
     }
+
 }
