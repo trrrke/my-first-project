@@ -16,10 +16,11 @@ public class gameHandler : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag =="enemy") { healthSystem.Damage(10); }
+        
     }
     private void OnTriggerEnter(Collider other)
     {
+         if (other.gameObject.tag == "enemy") { healthSystem.Damage(10); }
         if (other.gameObject.tag == "heal") {  healthSystem.heal(10); }
     }
     void Start()

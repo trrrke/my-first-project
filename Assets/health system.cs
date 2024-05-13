@@ -22,7 +22,7 @@ public class HelathSystem : MonoBehaviour
     public void Damage(int DamageAmont)
     {
         helathPoints -= DamageAmont;
-        if (helathPoints < 0) {helathPoints = 0;}
+        if (helathPoints <= 0) {helathPoints = 0;}
     }
     public void heal(int healAmont)
     {
