@@ -7,7 +7,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine.UI;
 
 [Serializable]
-public class HelathSystem : MonoBehaviour
+public class HelathSystem 
 {
     private float helathPoints;
     private float maxhelath;
@@ -18,7 +18,7 @@ public class HelathSystem : MonoBehaviour
         helathPoints = maxhelath;
     }
     public float gethealth() { return helathPoints; }
-    public float gethealthpercentage() { return helathPoints / maxhelath; }
+    public float gethealthpercentage() { return helathPoints; }
     public void Damage(int DamageAmont)
     {
         helathPoints -= DamageAmont;

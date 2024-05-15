@@ -9,24 +9,27 @@ public class gameHandler : MonoBehaviour
 {
     public Slider slider;
     HelathSystem healthSystem = new HelathSystem(100);
+
+    private void Start()
+    {
+        slider.maxValue = healthSystem.gethealth();
+    }
     // Start is called before the first frame update
     public void Update()
     {
         slider.value = healthSystem.gethealthpercentage();
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        
-    }
     private void OnTriggerEnter(Collider other)
     {
-         if (other.gameObject.tag == "enemy") { healthSystem.Damage(10); }
-        if (other.gameObject.tag == "heal") {  healthSystem.heal(10); }
+        healthSystem.Damage(10);
+         if (other.gameObject.tag == "enemy") {
+            Debug.Log("Heyyyyy");
+            healthSystem.Damage(10); }
+        if (other.gameObject.tag == "heal") {
+            Debug.Log("Heyyyyy"); 
+            healthSystem.heal(10); }
     }
-    void Start()
-    {
-        
-    }
+
 
     // Update is called once per frame
 

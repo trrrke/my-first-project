@@ -8,6 +8,7 @@ TagManager:
   - Damage
   - heal
   - enemy
+  - Enemy
   layers:
   - Default
   - TransparentFX
